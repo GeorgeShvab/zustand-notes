@@ -1,0 +1,8 @@
+@import "@design-system";
+
+.button {
+  @include button-base;
+
+  height: 44px;
+  padding: 6px 20px;
+}

@@ -1,0 +1,41 @@
+@import "@design-system";
+
+.home__header {
+  display: flex;
+  gap: 20px;
+}
+
+.home__search-field {
+  flex: 3 0 auto;
+}
+
+.home__search-button {
+  flex: 0 3 auto;
+  width: fit-content;
+  padding-left: 14px;
+
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.home__notes-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 20px 0;
+}
+
+.home__empty-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  height: calc(100svh - 128px);
+}
+
+.home__empty-view-text {
+  color: $gray-light;
+}

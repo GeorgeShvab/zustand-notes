@@ -1,0 +1,51 @@
+@mixin input-appearance {
+  background-color: $gray-lighter;
+  transition: box-shadow 0.2s;
+  outline: none;
+  border: none;
+
+  &_error {
+    outline: 1px solid $danger;
+  }
+
+  &:focus-within {
+    box-shadow: inset 0 0 3px 0 rgba($color: $gray, $alpha: 0.15);
+  }
+}
+
+@mixin input-font {
+  color: $gray;
+  caret-color: $gray;
+  font-size: 16px;
+}
+
+@mixin button-base {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  outline: none;
+  border: none;
+  background-color: $black;
+  font-size: 16px;
+  color: $white;
+  cursor: pointer;
+  transition: 0.2s background-color;
+
+  &_primary {
+    background-color: $black;
+
+    &:hover {
+      background-color: $black-light;
+    }
+  }
+
+  &_danger {
+    background-color: $danger;
+
+    &:hover {
+      background-color: $danger-light;
+    }
+  }
+}

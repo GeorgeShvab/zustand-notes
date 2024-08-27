@@ -1,0 +1,51 @@
+@import "@design-system";
+
+.note-modal {
+  padding: 50px;
+  border-radius: 20px;
+  background-color: $white;
+  box-shadow: 0 0 5px 0 rgba($color: #000000, $alpha: 0.2);
+  height: 80svh;
+  width: 60svw;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-modal__title-container {
+  margin-bottom: 20px;
+}
+
+.note-modal__content-container {
+  @include input-appearance;
+
+  flex: 3 0 auto;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.note-modal__content-input {
+  @include input-font;
+
+  background-color: transparent;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  line-height: 1.3;
+}
+
+.note-modal__footer {
+  display: flex;
+  gap: 8px;
+}
+
+.note-modal__footer-save-btn {
+  flex: 3 0 auto;
+}
+
+.note-modal__footer-delete-btn {
+  flex: 0 3 auto;
+}

@@ -1,0 +1,13 @@
+@import "@design-system";
+
+.icon-button {
+  @include button-base;
+
+  height: 44px;
+  width: 44px;
+
+  svg {
+    height: 24px;
+    width: 24px;
+  }
+}
