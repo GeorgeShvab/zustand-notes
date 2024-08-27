@@ -1,6 +1,7 @@
-import { useState, ChangeEvent, FormEvent } from "react";
-import { UseFormParams } from "./useForm.types";
-import getFormErrorsFromState from "./getFormErrorsFromState";
+import { ChangeEvent, FormEvent, useState } from "react";
+
+import getFormErrorsFromState from "@/hooks/use-form/getFormErrorsFromState";
+import { UseFormParams } from "@/hooks/use-form/useForm.types";
 
 // This hook works only with not nested text fields
 const useForm = <T extends Record<string, string>>(

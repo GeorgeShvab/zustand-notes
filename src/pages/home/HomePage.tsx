@@ -1,72 +1,45 @@
-import Button from "../../components/button/Button";
-import Input from "../../components/input/Input";
-import NoteCard from "../../components/note-card/NoteCard";
-import NoteModal from "../../containers/note-modal/NoteModal";
-import NoteEditModal from "../../containers/note-modal/NoteModal";
-import PlusIcon from "../../icons/PlusIcon";
-import useModalStore from "../../store/modal-store/modalStore";
-import useNotesStore from "../../store/notes-store/notesStore";
-import { Note } from "../../types";
-import "./styles.scss";
+import { ChangeEvent, useMemo, useState } from "react";
+
+import Header from "@/containers/header/Header";
+import NotesContainer from "@/containers/notes-container/NotesContainer";
+
+import EmptyNotesView from "@/pages/home/EmptyNotesView";
+import EmptySearchResultsView from "@/pages/home/EmptySearchResultsView";
+import useNotesStore from "@/store/notes-store/notesStore";
+
+import "@/pages/home/styles.scss";
 
 const HomePage = () => {
-  const notes = useNotesStore();
-  const modal = useModalStore();
+  const { data: notes } = useNotesStore();
 
-  const handleCreateNoteClick = () => {
-    modal.open(<NoteModal onSave={notes.createNote} />);
+  const [searchValue, setSearchValue] = useState<string>("");
+
+  const handleChangeSearchValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
   };
 
-  const noteCards = notes.data.map((item) => {
-    const handleClick = () => {
-      const handleSave = (data: Pick<Note, "title" | "content">) => {
-        notes.editNote({ id: item.id, ...data });
-        modal.close();
-      };
+  const filteredNotes = useMemo(() => {
+    return notes.filter((item) => {
+      const regexp = new RegExp(searchValue, "gi");
 
-      const handleDelete = () => {
-        notes.deleteNote(item.id);
-        modal.close();
-      };
+      return regexp.test(item.title) || regexp.test(item.content);
+    });
+  }, [searchValue, notes]);
 
-      modal.open(
-        <NoteEditModal
-          note={{ title: item.title, content: item.content }}
-          onSave={handleSave}
-          onDelete={handleDelete}
-        />
-      );
-    };
+  let content;
 
-    return <NoteCard key={item.id} note={item} onClick={handleClick} />;
-  });
-
-  const content = notes.data.length ? (
-    <div className="home__notes-grid">{noteCards}</div>
-  ) : (
-    <div className="home__empty-view">
-      <p className="home__empty-view-text">
-        You have no any notes. Click below to create one.
-      </p>
-      <div onClick={handleCreateNoteClick}>
-        <Button>New Note</Button>
-      </div>
-    </div>
-  );
+  if (searchValue && !filteredNotes.length) {
+    content = <EmptySearchResultsView />;
+  } else if (!notes.length) {
+    content = <EmptyNotesView />;
+  } else {
+    content = <NotesContainer data={filteredNotes} />;
+  }
 
   return (
     <div className="home">
-      <div className="home__header">
-        <Input
-          containerProps={{ className: "home__search-field" }}
-          placeholder="search by word"
-        />
-        <Button className="home__search-button" onClick={handleCreateNoteClick}>
-          <PlusIcon />
-          <span>Create Note</span>
-        </Button>
-      </div>
-      {content}
+      <Header value={searchValue} onChange={handleChangeSearchValue} />
+      <main>{content}</main>
     </div>
   );
 };

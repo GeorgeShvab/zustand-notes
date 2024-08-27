@@ -1,24 +1,28 @@
 import { FC } from "react";
-import "./styles.scss";
-import { NoteModalProps } from "./NoteModal.types";
-import Button from "../../components/button/Button";
-import Input from "../../components/input/Input";
-import IconButton from "../../components/icon-button/IconButton";
-import DeleteIcon from "../../icons/DeleteIcon";
-import { Note } from "../../types";
-import cn from "../../utils/cn/cn";
-import useForm from "../../hooks/use-form/useForm";
+
+import { NoteModalProps } from "@/containers/note-modal/NoteModal.types";
+
+import Button from "@/components/button/Button";
+import IconButton from "@/components/icon-button/IconButton";
+import Input from "@/components/input/Input";
+import Textarea from "@/components/textarea/Textarea";
+
+import useForm from "@/hooks/use-form/useForm";
+import DeleteIcon from "@/icons/DeleteIcon";
+import { Note } from "@/types";
+
+import "@/containers/note-modal/styles.scss";
 
 const NoteModal: FC<NoteModalProps> = ({
   onSave,
   onDelete,
-  note = { title: "", content: "" },
+  note = { title: "", content: "" }
 }) => {
   const { values, errors, onSubmit, onChange } = useForm<
     Pick<Note, "title" | "content">
   >({
     initialValues: note,
-    onSubmit: onSave,
+    onSubmit: onSave
   });
 
   const handleDeleteClick = () => {
@@ -36,15 +40,9 @@ const NoteModal: FC<NoteModalProps> = ({
           onChange={onChange}
         />
       </div>
-      <div
-        className={cn(
-          "note-modal__content-container",
-          errors.content && "note-modal__content-container_error"
-        )}
-      >
-        <textarea
+      <div className="note-modal__content-container">
+        <Textarea
           name="content"
-          className="note-modal__content-input"
           placeholder="Content"
           value={values.content}
           onChange={onChange}

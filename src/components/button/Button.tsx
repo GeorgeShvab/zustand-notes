@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { ButtonProps } from "./Button.types";
-import cn from "../../utils/cn/cn";
-import "./styles.scss";
+import { ButtonProps } from "@/components/button/Button.types";
+import cn from "@/utils/cn/cn";
+import "@/components/button/styles.scss";
 
 const Button: FC<ButtonProps> = ({
   variant = "primary",

@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import { Note } from "../../types";
+import { Note } from "@/types";
 
 export interface NoteCardProps {
   note: Pick<Note, "title" | "content" | "color">;

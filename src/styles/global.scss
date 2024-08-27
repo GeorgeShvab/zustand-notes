@@ -11,3 +11,18 @@
 *::after {
   font-family: inherit;
 }
+
+@media screen and (min-width: 1024px) {
+  .pretty-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 2px;
+  }
+
+  .pretty-scrollbar::-webkit-scrollbar-track {
+    background: #f2f2f2;
+  }
+
+  .pretty-scrollbar::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+  }
+}

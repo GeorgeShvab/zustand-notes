@@ -1,4 +1,4 @@
-import { Note } from "../../types";
+import { Note } from "@/types";
 
 export interface NoteModalProps {
   note?: Pick<Note, "title" | "content">;

@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import throttle from "../../utils/throttle/throttle";
+import throttle from "@/utils/throttle/throttle";
 
 const useThrottle = (
   fn: (...args: any[]) => void,

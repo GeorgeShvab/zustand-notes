@@ -1,7 +1,10 @@
 import { FC } from "react";
-import { InputProps } from "./Input.types";
-import cn from "../../utils/cn/cn";
-import "./styles.scss";
+
+import { InputProps } from "@/components/input/Input.types";
+
+import cn from "@/utils/cn/cn";
+
+import "@/components/input/styles.scss";
 
 const Input: FC<InputProps> = ({
   className,

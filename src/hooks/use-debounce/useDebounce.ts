@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import debounce from "../../utils/debounce/debounce";
+import debounce from "@/utils/debounce/debounce";
 
 const useDebounce = (
   fn: (...args: any[]) => void,

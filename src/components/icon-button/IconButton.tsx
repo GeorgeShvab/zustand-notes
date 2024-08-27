@@ -1,7 +1,10 @@
 import { FC } from "react";
-import { IconButtonProps } from "./IconButton.types";
-import cn from "../../utils/cn/cn";
-import "./styles.scss";
+
+import { IconButtonProps } from "@/components/icon-button/IconButton.types";
+
+import cn from "@/utils/cn/cn";
+
+import "@/components/icon-button/styles.scss";
 
 const IconButton: FC<IconButtonProps> = ({
   variant = "primary",

@@ -1,46 +1,31 @@
 import { create } from "zustand";
-import { NotesStore } from "./noteStore.types";
 import { createJSONStorage, persist } from "zustand/middleware";
-import getRandomColor from "../../utils/get-random-color/getRandomColor";
+
+import { NotesStore } from "@/store/notes-store/noteStore.types";
+import createNote from "@/utils/create-note/createNote";
 
 const useNotesStore = create<NotesStore>()(
   persist(
     (set) => ({
       data: [],
       createNote: (data) =>
-        set((state) => {
-          const id = crypto.randomUUID();
-          const createdAt = Date.now();
-          const updatedAt = createdAt;
-
-          const newNote = {
-            ...data,
-            updatedAt,
-            createdAt,
-            id,
-            color: getRandomColor(),
-          };
-
-          return { data: [...state.data, newNote] };
-        }),
+        set((state) => ({ data: [...state.data, createNote(data)] })),
       editNote: (data) =>
-        set((state) => {
-          const updatedAt = Date.now();
-
-          return {
-            data: state.data.map((item) =>
-              item.id === data.id ? { ...item, ...data, updatedAt } : item
-            ),
-          };
-        }),
+        set((state) => ({
+          data: state.data.map((item) =>
+            item.id === data.id
+              ? { ...item, ...data, updatedAt: Date.now() }
+              : item
+          )
+        })),
       deleteNote: (id) =>
         set((state) => ({
-          data: state.data.filter((item) => item.id !== id),
-        })),
+          data: state.data.filter((item) => item.id !== id)
+        }))
     }),
     {
       name: "notes",
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() => localStorage)
     }
   )
 );

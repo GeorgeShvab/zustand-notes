@@ -1,10 +1,12 @@
 import { FC } from "react";
-import { NoteCardProps } from "./NoteCard.types";
-import "./styles.scss";
+
+import { NoteCardProps } from "@/components/note-card/NoteCard.types";
+
+import "@/components/note-card/styles.scss";
 
 const NoteCard: FC<NoteCardProps> = ({
   note: { title, content, color },
-  onClick,
+  onClick
 }) => {
   return (
     <div

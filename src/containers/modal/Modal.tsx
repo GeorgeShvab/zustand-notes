@@ -1,8 +1,8 @@
 import { FC, useEffect, useLayoutEffect, useRef, useState } from "react";
-import Portal from "../portal/Portal";
-import { ModalProps } from "./Modal.types";
-import "./styles.scss";
-import cn from "../../utils/cn/cn";
+import Portal from "@/containers/portal/Portal";
+import { ModalProps } from "@/containers/modal/Modal.types";
+import "@/containers/modal/styles.scss";
+import cn from "@/utils/cn/cn";
 
 const Modal: FC<ModalProps> = ({ children, onClose, isOpen }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
