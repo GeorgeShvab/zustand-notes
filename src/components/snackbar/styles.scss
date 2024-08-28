@@ -1,0 +1,16 @@
+@import "@design-system";
+
+.snackbar {
+  font-size: 16px;
+  padding: 16px 24px;
+  border-radius: 10px;
+  color: $white;
+
+  &_success {
+    background-color: $success;
+  }
+
+  &_danger {
+    background-color: $danger;
+  }
+}

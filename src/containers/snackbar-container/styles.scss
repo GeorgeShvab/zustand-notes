@@ -1,0 +1,15 @@
+.snackbar-animation {
+  position: fixed;
+  left: 50%;
+  top: -50px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition:
+    0.25s transform,
+    0.25s opacity;
+
+  &_active {
+    transform: translateX(-50%) translateY(100px);
+    opacity: 1;
+  }
+}

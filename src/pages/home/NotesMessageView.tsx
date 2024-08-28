@@ -4,11 +4,10 @@ import NoteModal from "@/containers/note-modal/NoteModal";
 
 import Button from "@/components/button/Button";
 
+import { NotesMessageView } from "@/pages/home/HomePage.types";
 import useModalStore from "@/store/modal-store/modalStore";
 import useNotesStore from "@/store/notes-store/notesStore";
 import { Note } from "@/types";
-
-import { NotesMessageView } from "./HomePage.types";
 
 const EmptySearchResultsView: FC<NotesMessageView> = ({ message }) => {
   const modal = useModalStore();
@@ -32,4 +31,5 @@ const EmptySearchResultsView: FC<NotesMessageView> = ({ message }) => {
     </div>
   );
 };
+
 export default EmptySearchResultsView;

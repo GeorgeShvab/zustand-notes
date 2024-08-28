@@ -1,6 +1,5 @@
 import { ChangeEvent, FC } from "react";
 
-import { HeaderProps } from "@/containers/header/Header.types";
 import NoteModal from "@/containers/note-modal/NoteModal";
 
 import Button from "@/components/button/Button";
@@ -11,6 +10,7 @@ import PlusIcon from "@/icons/PlusIcon";
 import useModalStore from "@/store/modal-store/modalStore";
 import useNotesStore from "@/store/notes-store/notesStore";
 import useSearchStore from "@/store/search-store/searchStore";
+import useSnackbarStore from "@/store/snackbar-store/snackbarStore";
 import { Note } from "@/types";
 
 import "@/containers/header/styles.scss";
@@ -18,6 +18,8 @@ import "@/containers/header/styles.scss";
 const Header: FC = () => {
   const modal = useModalStore();
   const notes = useNotesStore();
+
+  const snackbar = useSnackbarStore();
 
   const search = useSearchStore();
 
@@ -27,6 +29,10 @@ const Header: FC = () => {
 
   const handleCreateNote = (data: Pick<Note, "title" | "content">) => {
     notes.createNote(data);
+    snackbar.open({
+      message: "Note was created successfully",
+      severity: "success"
+    });
     modal.close();
   };
 

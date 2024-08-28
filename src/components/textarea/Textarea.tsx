@@ -24,7 +24,7 @@ const Textarea: FC<TextareaProps> = ({ className, isError, ...props }) => {
     >
       <textarea
         name="content"
-        className="textarea__element pretty-scrollbar"
+        className="textarea__element"
         placeholder="Content"
         ref={textareaRef}
         {...props}

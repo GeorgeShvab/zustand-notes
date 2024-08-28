@@ -2,19 +2,21 @@ import { FC, memo } from "react";
 
 import Header from "@/containers/header/Header";
 import { LayoutProps } from "@/containers/layout/Layout.types";
+import ModalContainer from "@/containers/modal-container/ModalContainer";
+import SnackbarContainer from "@/containers/snackbar-container/SnackbarContainer";
 
 import "@/containers/layout/styles.scss";
 
-import ModalWrapper from "../modal-wrapper/ModalWrapper";
-
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <ModalWrapper>
-      <div className="layout">
-        <Header />
-        <main>{children}</main>
-      </div>
-    </ModalWrapper>
+    <SnackbarContainer>
+      <ModalContainer>
+        <div className="layout">
+          <Header />
+          <main>{children}</main>
+        </div>
+      </ModalContainer>
+    </SnackbarContainer>
   );
 };
 

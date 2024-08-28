@@ -56,6 +56,7 @@ const NoteModal: FC<NoteModalProps> = ({
           <IconButton
             variant="danger"
             className="note-modal__footer-delete-btn"
+            type="button"
             onClick={handleDeleteClick}
           >
             <DeleteIcon />

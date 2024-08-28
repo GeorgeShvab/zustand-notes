@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { SearchStore } from "./searchStore.types";
+import { SearchStore } from "@/store/search-store/searchStore.types";
 
 const useSearchStore = create<SearchStore>()((set) => ({
   value: "",

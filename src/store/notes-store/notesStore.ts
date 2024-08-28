@@ -2,7 +2,6 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 import { NotesStore } from "@/store/notes-store/notesStore.types";
-import { Note } from "@/types";
 import createNote from "@/utils/create-note/createNote";
 
 // type Middleware = (
