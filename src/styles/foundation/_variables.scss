@@ -21,3 +21,23 @@ $white: #ffffff;
 $transparent: transparent;
 
 $spacing-scale-factor: 0.25rem;
+
+/*=============================================
+=                BREAKPOINTS                  =
+=============================================*/
+
+$screen-xs: 0;
+$screen-sm: 37.5rem; // 600px
+$screen-md: 56.25rem; // 900px
+$screen-lg: 75rem; // 1200px
+$screen-xl: 96rem; // 1536px
+
+$breakpoints: (
+  xs: $screen-xs,
+  sm: $screen-sm,
+  md: $screen-md,
+  lg: $screen-lg,
+  xl: $screen-xl
+);
+
+/*=====  End of BREAKPOINTS  ======*/

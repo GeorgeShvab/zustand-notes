@@ -1,21 +1,29 @@
-import { FC } from "react";
+import { ChangeEvent, FC } from "react";
 
 import { HeaderProps } from "@/containers/header/Header.types";
 import NoteModal from "@/containers/note-modal/NoteModal";
 
 import Button from "@/components/button/Button";
+import IconButton from "@/components/icon-button/IconButton";
 import Input from "@/components/input/Input";
 
 import PlusIcon from "@/icons/PlusIcon";
 import useModalStore from "@/store/modal-store/modalStore";
 import useNotesStore from "@/store/notes-store/notesStore";
+import useSearchStore from "@/store/search-store/searchStore";
 import { Note } from "@/types";
 
 import "@/containers/header/styles.scss";
 
-const Header: FC<HeaderProps> = (props) => {
+const Header: FC = () => {
   const modal = useModalStore();
   const notes = useNotesStore();
+
+  const search = useSearchStore();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    search.setValue(e.target.value);
+  };
 
   const handleCreateNote = (data: Pick<Note, "title" | "content">) => {
     notes.createNote(data);
@@ -31,15 +39,21 @@ const Header: FC<HeaderProps> = (props) => {
       <Input
         containerProps={{ className: "header__search-field" }}
         placeholder="Search Notes"
-        {...props}
+        onChange={handleChange}
       />
       <Button
-        className="header__new-note-button"
+        className="header__new-note-button desktop"
         onClick={handleCreateNoteClick}
       >
         <PlusIcon />
         <span>Create Note</span>
       </Button>
+      <IconButton
+        className="header__new-note-button mobile"
+        onClick={handleCreateNoteClick}
+      >
+        <PlusIcon />
+      </IconButton>
     </header>
   );
 };

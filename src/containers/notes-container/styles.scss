@@ -1,5 +1,18 @@
+@import "@design-system";
+
 .notes-container {
   display: grid;
   gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @include breakpoint("sm") {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include breakpoint("md") {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include breakpoint("lg") {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

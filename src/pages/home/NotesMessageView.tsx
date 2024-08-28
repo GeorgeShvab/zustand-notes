@@ -8,7 +8,9 @@ import useModalStore from "@/store/modal-store/modalStore";
 import useNotesStore from "@/store/notes-store/notesStore";
 import { Note } from "@/types";
 
-const EmptySearchResultsView: FC = () => {
+import { NotesMessageView } from "./HomePage.types";
+
+const EmptySearchResultsView: FC<NotesMessageView> = ({ message }) => {
   const modal = useModalStore();
   const notes = useNotesStore();
 
@@ -23,10 +25,7 @@ const EmptySearchResultsView: FC = () => {
 
   return (
     <div className="home__empty-view">
-      <p className="home__empty-view-text">
-        Nothing was found. Try to change prompt or create new note using button
-        below.
-      </p>
+      <p className="home__empty-view-text">{message}</p>
       <div onClick={handleCreateNoteClick}>
         <Button>New Note</Button>
       </div>

@@ -1,20 +1,20 @@
 @import "@design-system";
 
 .input {
-  @include input-appearance;
-
   height: 44px;
   display: flex;
   align-items: center;
   border-radius: 10px;
   padding: 0 14px;
+
+  @include input-appearance;
 }
 
 .input__element {
-  @include input-font;
-
   background-color: transparent;
   outline: none;
   border: none;
   width: 100%;
+
+  @include input-font;
 }

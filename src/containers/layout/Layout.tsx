@@ -1,28 +1,20 @@
-import { FC, PropsWithChildren, memo } from "react";
+import { FC, memo } from "react";
 
+import Header from "@/containers/header/Header";
 import { LayoutProps } from "@/containers/layout/Layout.types";
-import Modal from "@/containers/modal/Modal";
-
-import useModalStore from "@/store/modal-store/modalStore";
 
 import "@/containers/layout/styles.scss";
 
-const Content: FC<PropsWithChildren> = memo(({ children }) => children);
+import ModalWrapper from "../modal-wrapper/ModalWrapper";
 
 const Layout: FC<LayoutProps> = ({ children }) => {
-  const modal = useModalStore();
-
   return (
-    <>
-      <Modal isOpen={modal.isOpen} onClose={modal.close}>
-        {modal.element}
-      </Modal>
-      <main>
-        <div className="layout">
-          <Content>{children}</Content>
-        </div>
-      </main>
-    </>
+    <ModalWrapper>
+      <div className="layout">
+        <Header />
+        <main>{children}</main>
+      </div>
+    </ModalWrapper>
   );
 };
 

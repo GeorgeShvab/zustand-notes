@@ -1,10 +1,10 @@
 @import "@design-system";
 
 .icon-button {
-  @include button-base;
-
   height: 44px;
   width: 44px;
+
+  @include button-base;
 
   svg {
     height: 24px;

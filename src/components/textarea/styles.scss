@@ -1,11 +1,11 @@
 @import "@design-system";
 
 .textarea {
-  @include input-appearance;
-
   flex: 3 0 auto;
   border-radius: 10px;
   overflow: hidden;
+
+  @include input-appearance;
 
   &_scrollable {
     .textarea__element {
@@ -15,8 +15,6 @@
 }
 
 .textarea__element {
-  @include input-font;
-
   padding: 10px 14px;
   background-color: transparent;
   font-size: 14px;
@@ -26,4 +24,6 @@
   height: 100%;
   resize: none;
   line-height: 1.3;
+
+  @include input-font;
 }
