@@ -19,6 +19,7 @@ const ColorPicker: FC<ColorPickerProps> = ({
     <div className={cn("color-picker", className)} {...props}>
       {colors.map((item) => (
         <IconButton
+          key={item}
           style={{
             "--bg-color": item
           }}
