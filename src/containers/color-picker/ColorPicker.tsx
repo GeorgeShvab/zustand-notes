@@ -27,6 +27,7 @@ const ColorPicker: FC<ColorPickerProps> = ({
             color === item && "color-picker__item_selected"
           )}
           onClick={() => onChange(item)}
+          aria-label="Select color"
           type="button"
         />
       ))}

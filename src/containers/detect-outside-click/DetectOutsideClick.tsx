@@ -12,12 +12,10 @@ const DetectOutsideClick: FC<DetectOutsideClickProps> = ({
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const shouldIgnore =
-        containerRef.current?.contains(e.target as any) ||
-        ignore?.some((item) => item.current?.contains(e.target as any));
+        containerRef.current?.contains(e.target as HTMLElement) ||
+        ignore?.some((item) => item.current?.contains(e.target as HTMLElement));
 
       if (shouldIgnore) return;
-
-      console.log("CLosed");
 
       onOutsideClick(e);
     };

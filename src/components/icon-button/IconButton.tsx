@@ -1,4 +1,4 @@
-import { FC, ForwardRefRenderFunction, forwardRef } from "react";
+import { ForwardRefRenderFunction, forwardRef } from "react";
 
 import { IconButtonProps } from "@/components/icon-button/IconButton.types";
 

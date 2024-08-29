@@ -1,3 +1,5 @@
+@import "variables";
+
 @function spacing($value: 1) {
   @if $value != round($value) or $value <= 0 {
     @error "#{$value} should be an integer in range from 1 to 10 inclusive";

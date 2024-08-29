@@ -48,6 +48,7 @@ const NoteModal: FC<NoteModalProps> = ({
       <div className="note-modal__title-container">
         <Input
           placeholder="Title"
+          aria-label="Note title"
           containerProps={{ className: "note-modal__title-input" }}
           name="title"
           isError={errors.title}
@@ -55,6 +56,7 @@ const NoteModal: FC<NoteModalProps> = ({
           onChange={onChange}
         />
         <IconButton
+          aria-label="Select note color"
           style={{ backgroundColor: values.color }}
           type="button"
           className="note-modal__color-btn"
@@ -79,6 +81,7 @@ const NoteModal: FC<NoteModalProps> = ({
       <div className="note-modal__content-container">
         <Textarea
           name="content"
+          aria-label="Note content"
           placeholder="Content"
           value={values.content}
           onChange={onChange}
@@ -90,6 +93,7 @@ const NoteModal: FC<NoteModalProps> = ({
         </Button>
         {onDelete && (
           <IconButton
+            aria-label="Delete Note"
             variant="danger"
             className="note-modal__footer-delete-btn"
             type="button"

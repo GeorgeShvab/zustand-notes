@@ -44,6 +44,8 @@ const Header: FC = () => {
     <header className="header">
       <Input
         containerProps={{ className: "header__search-field" }}
+        aria-label="Search Notes"
+        name="query"
         placeholder="Search Notes"
         onChange={handleChange}
       />
@@ -56,6 +58,7 @@ const Header: FC = () => {
       </Button>
       <IconButton
         className="header__new-note-button mobile"
+        aria-label="Create new note"
         onClick={handleCreateNoteClick}
       >
         <PlusIcon />
