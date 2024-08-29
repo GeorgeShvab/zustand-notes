@@ -1,0 +1,9 @@
+.popover {
+  position: absolute;
+  opacity: 0;
+  transition: 0.3s opacity;
+
+  &_visible {
+    opacity: 1;
+  }
+}

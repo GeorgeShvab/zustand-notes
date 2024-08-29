@@ -1,7 +1,6 @@
 import { Note } from "@/types";
-import getRandomColor from "@/utils/get-random-color/getRandomColor";
 
-const createNote = (data: Pick<Note, "title" | "content">) => {
+const createNote = (data: Pick<Note, "title" | "content" | "color">) => {
   const id = crypto.randomUUID();
   const createdAt = Date.now();
   const updatedAt = createdAt;
@@ -10,8 +9,7 @@ const createNote = (data: Pick<Note, "title" | "content">) => {
     ...data,
     updatedAt,
     createdAt,
-    id,
-    color: getRandomColor()
+    id
   };
 
   return newNote;

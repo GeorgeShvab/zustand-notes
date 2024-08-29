@@ -18,6 +18,10 @@ const useForm = <T extends Record<string, string>>(
     setErrors((prev) => ({ ...prev, [name]: false }));
   };
 
+  const setValue = (key: keyof T, value: string) => {
+    setValues((prev) => ({ ...prev, [key]: value }));
+  };
+
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -34,7 +38,7 @@ const useForm = <T extends Record<string, string>>(
     setErrors(formErrors);
   };
 
-  return { onChange, onSubmit, values, errors };
+  return { onChange, onSubmit, setValue, values, errors };
 };
 
 export default useForm;

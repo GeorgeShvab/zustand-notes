@@ -1,0 +1,28 @@
+@import "@design-system";
+
+.color-picker {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.color-picker__item {
+  height: 28px;
+  width: 28px;
+  border-radius: 5px;
+  background-color: var(--bg-color) !important;
+  outline-offset: 2px;
+  transition:
+    0.3s outline,
+    0.3s transform;
+  outline: 2px solid $transparent;
+
+  &_selected {
+    outline: 2px solid var(--bg-color);
+    transform: scale(0.8) !important;
+  }
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}

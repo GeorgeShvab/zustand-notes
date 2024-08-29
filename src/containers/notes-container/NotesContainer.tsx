@@ -40,7 +40,7 @@ const NotesContainer: FC<NotesContainerProps> = ({ data }) => {
 
       modal.open(
         <NoteModal
-          note={{ title: item.title, content: item.content }}
+          note={{ title: item.title, content: item.content, color: item.color }}
           onSave={handleSave}
           onDelete={handleDelete}
         />

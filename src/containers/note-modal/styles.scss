@@ -12,7 +12,9 @@
 }
 
 .note-modal__title-container {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 12px;
 }
 
 .note-modal__content-container {
@@ -35,4 +37,43 @@
 
 .note-modal__footer-delete-btn {
   flex: 0 3 auto;
+}
+
+.note-modal__title-input {
+  flex: 3 0 auto;
+}
+
+.note-modal__color-picker {
+  padding: 12px;
+  border-radius: 10px;
+  background-color: $white;
+  position: relative;
+  box-shadow: 0 0 3px 0 rgba($color: #000000, $alpha: 0.15);
+
+  &::before {
+    position: absolute;
+    left: 50%;
+    top: -6px;
+    z-index: 0;
+    transform: translateX(-50%) rotate(45deg);
+    height: 12px;
+    width: 12px;
+    background-color: $white;
+    box-shadow: 0 0 3px 0 rgba($color: #000000, $alpha: 0.15);
+    display: block;
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 1;
+    transform: translateX(-50%);
+    height: 10px;
+    width: 30px;
+    background-color: $white;
+    display: block;
+    content: "";
+  }
 }
