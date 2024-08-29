@@ -1,6 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-const useAnimation = (isActive: boolean) => {
+// This hook is for opening and closing animation
+// Is mounted indicates whether component I am doing animation for should be
+const useAnimation = (isActive: boolean, ms: number = 300) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -10,18 +12,13 @@ const useAnimation = (isActive: boolean) => {
     clearTimeout(closeTimer.current);
 
     if (isActive) {
-      if (isMounted) {
-        setIsMounted(true);
-      } else {
-        setIsMounted(true);
-        setIsVisible(false);
-      }
+      setIsMounted(true);
     } else {
       setIsVisible(false);
 
       closeTimer.current = setTimeout(() => {
         setIsMounted(false);
-      }, 300);
+      }, ms);
     }
   }, [isActive]);
 

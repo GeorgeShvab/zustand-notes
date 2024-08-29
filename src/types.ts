@@ -1,7 +1,7 @@
-type CustomCSSVar = { [key in `--${string}`]: string };
-
 declare module "react" {
-  export interface CSSProperties extends CustomCSSVar {}
+  export interface CSSProperties {
+    [key: `--${string}`]: string;
+  }
 }
 
 export interface Note {

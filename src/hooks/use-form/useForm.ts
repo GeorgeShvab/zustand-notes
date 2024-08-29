@@ -3,7 +3,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import getFormErrorsFromState from "@/hooks/use-form/getFormErrorsFromState";
 import { UseFormParams } from "@/hooks/use-form/useForm.types";
 
-// This hook works only with not nested text fields
+// This hook is only for not nested text fields
 const useForm = <T extends Record<string, string>>(
   params: UseFormParams<T>
 ) => {
@@ -21,11 +21,11 @@ const useForm = <T extends Record<string, string>>(
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const isAllTheFieldsFilled = Object.values(values).every((item) =>
+    const isAllFieldsFilled = Object.values(values).every((item) =>
       item.trim()
     );
 
-    if (isAllTheFieldsFilled) {
+    if (isAllFieldsFilled) {
       params.onSubmit(values);
       return;
     }

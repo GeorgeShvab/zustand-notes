@@ -26,7 +26,7 @@ const NoteModal: FC<NoteModalProps> = ({
   });
 
   const handleDeleteClick = () => {
-    onDelete && onDelete();
+    if (onDelete) onDelete();
   };
 
   return (

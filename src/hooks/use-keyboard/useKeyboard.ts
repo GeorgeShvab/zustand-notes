@@ -14,7 +14,7 @@ const useKeyboard = (
     document.addEventListener("keydown", handleKeyDown);
 
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [keyCode]);
 };
 
 export default useKeyboard;
