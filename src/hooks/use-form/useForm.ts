@@ -11,7 +11,6 @@ const useForm = <T extends Record<string, string>>(
   const [values, setValues] = useState(params.initialValues);
 
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    console.log("Change");
     const name = e.target.name as keyof T;
     const value = e.target.value;
 

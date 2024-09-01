@@ -27,7 +27,9 @@ const Header: FC = () => {
     search.setValue(e.target.value);
   };
 
-  const handleCreateNote = (data: Pick<Note, "title" | "content">) => {
+  const handleCreateNote = (
+    data: Pick<Note, "title" | "content" | "color">
+  ) => {
     notes.createNote(data);
     snackbar.open({
       message: "Note was created successfully",
@@ -47,6 +49,7 @@ const Header: FC = () => {
         aria-label="Search Notes"
         name="query"
         placeholder="Search Notes"
+        value={search.value}
         onChange={handleChange}
       />
       <Button

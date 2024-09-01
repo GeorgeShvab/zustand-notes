@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
-import ColorPicker from "./ColorPicker";
+import ColorPicker from "@/containers/color-picker/ColorPicker";
 
 const mockCallback = vi.fn();
 
@@ -18,7 +18,7 @@ describe("Test ColorPicker", () => {
   test("Should apply propriate class to selected item", () => {
     const firstColorButton = screen.getAllByRole("button")[1];
 
-    expect(firstColorButton.classList).toContain("color-picker__item_selected");
+    expect(firstColorButton).toHaveClass("color-picker__item_selected");
   });
 
   test("Shoudl call passed callback fn when clicked on particular color", () => {

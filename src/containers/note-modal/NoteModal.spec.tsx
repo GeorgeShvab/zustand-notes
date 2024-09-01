@@ -2,7 +2,9 @@ import { fireEvent, render, screen } from "@testing-library/react";
 
 import { describe, expect, test, vi } from "vitest";
 
-import NoteModal from "./NoteModal";
+import NoteModal from "@/containers/note-modal/NoteModal";
+
+import fireChange from "@/utils/fire-change/fireChange";
 
 const mockOnSave = vi.fn();
 const mockOnDelete = vi.fn();
@@ -26,8 +28,8 @@ describe("Test NoteModal", () => {
     const titleInput = screen.getAllByRole("textbox")[0];
     const contentInput = screen.getAllByRole("textbox")[1];
 
-    fireEvent.change(titleInput, { target: { value: "My Note Title" } });
-    fireEvent.change(contentInput, { target: { value: "My Note Content" } });
+    fireChange(titleInput, expectedChangedTestNote.title);
+    fireChange(contentInput, expectedChangedTestNote.content);
 
     const submitButton = screen.getByText("Save Note");
     fireEvent.click(submitButton);
@@ -41,12 +43,8 @@ describe("Test NoteModal", () => {
     const titleInput = screen.getAllByRole("textbox")[0];
     const contentInput = screen.getAllByRole("textbox")[1];
 
-    fireEvent.change(titleInput, {
-      target: { value: expectedChangedTestNote.title }
-    });
-    fireEvent.change(contentInput, {
-      target: { value: expectedChangedTestNote.content }
-    });
+    fireChange(titleInput, expectedChangedTestNote.title);
+    fireChange(contentInput, expectedChangedTestNote.content);
 
     const selectColorButton = screen.getByLabelText("Select note color");
     fireEvent.click(selectColorButton);

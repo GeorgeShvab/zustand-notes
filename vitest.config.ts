@@ -20,6 +20,8 @@ export default defineConfig({
   },
   test: {
     environment: "jsdom",
-    globals: true
+    watch: false,
+    globals: true,
+    setupFiles: ["./src/setup-tests.ts"]
   }
 });

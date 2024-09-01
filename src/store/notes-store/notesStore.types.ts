@@ -3,6 +3,7 @@ import { Note } from "@/types";
 export interface CreateNoteParams {
   title: string;
   content: string;
+  color: string;
 }
 
 export interface EditNoteParams extends Partial<CreateNoteParams> {
